@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/">
+    <meta charset="utf-8">
+    <title>Auth..MEAN</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.min.js" charset="utf-8"></script>
+    <script src="app/app.js" charset="utf-8"></script>
+    <script src="app/routes.js" charset="utf-8"></script>
+    <script src="app/controllers/userCtrl.js" charset="utf-8"></script>
+    <script src="app/services/userService.js" charset="utf-8"></script>
+    <script src="app/services/authService.js" charset="utf-8"></script>
+    <script src="app/controllers/mainCtrl.js" charset="utf-8"></script>
+  </head>
+  <body ng-app="mym" ng-controller="mainCtrl as main" class="container" ng-show="main.loadMe" ng-cloak>
+      <nav class="navbar navbar-inverse">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Bootstrap theme</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a ng-show="!main.isLoggedIn" href="/login"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+              <li><a ng-show="!main.isLoggedIn" href="/register"><span class="glyphicon glyphicon-user"></span> Register </a></li>
+              <li><a ng-show="main.isLoggedIn" href="#" ng-click="main.logout();">Logout</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#"> First </a></li>
+                  <li><a href="#"> Second </a></li>
+                  <li><a href="#"> Third Link </a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="dropdown-header">Sub Menu..</li>
+                  <li><a href="#">One</a></li>
+                  <li><a href="#">Two</a></li>
+                </ul>
+              </li>
+              <li><a ng-show="main.isLoggedIn" href="/profile"> Hello {{ main.username}} <span class="glyphicon glyphicon-user"></span></a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+
+      <div class="container theme-showcase" role="main">
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+          <h1>Theme example</h1>
+          <p>This is a Simple demo of my MEAN stack Knowledge. It as a starting point to create something more unique by building on or modifying it & code code code.. </p>
+        </div>
+        <ng-view></ng-view>
+    </body>
+  </html>
